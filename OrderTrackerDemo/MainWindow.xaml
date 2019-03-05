@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrderTrackerDemo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Label x:Name="clientsLabel" Content="Клиенты" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+        
+        <DataGrid x:Name="clientsDataGrid" HorizontalAlignment="Left" Height="281" Margin="10,49,0,0" VerticalAlignment="Top" Width="774">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="30"/>
+                <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя*" Width="120"/>
+                <DataGridTextColumn Binding="{Binding SecondName}" Header="Фамилия*" Width="150"/>
+                <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Номер**" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Address}" Header="Адрес" Width="350"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button x:Name="updateClientsButton" Content="Сохранить&#xD;&#xA;изменения" Click="UpdateClientsButton_Click" HorizontalAlignment="Left" Margin="123,335,0,0" VerticalAlignment="Top" Width="108" Height="38" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="deleteClientButton" Content="Удалить" HorizontalAlignment="Left" Click="DeleteClientButton_Click" Margin="236,335,0,0" VerticalAlignment="Top" Width="108" Height="38"/>
+        <Button x:Name="openClientDetailsButton" Content="Просмотреть&#xD;&#xA;детали клиента" HorizontalAlignment="Left" Click="OpenClientDetailsButton_Click" Margin="10,335,0,0" VerticalAlignment="Top" Width="108" Height="38"/>
+        
+        <Label x:Name="infoPanelLabel" Content="* - поля обязательные для заполнения   **Формат номера телефона - +7ХХХХХХХХ" HorizontalAlignment="Left" Margin="10,378,0,0" VerticalAlignment="Top" FontSize="18" Width="774"/>
         
     </Grid>
 </Window>
